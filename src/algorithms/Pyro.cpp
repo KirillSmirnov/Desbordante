@@ -1,15 +1,16 @@
+#include "Pyro.h"
+
 #include <chrono>
 
 #include "FdG1Strategy.h"
 #include "KeyG1Strategy.h"
-#include "Pyro.h"
 
 double Pyro::execute() {
 
     auto relation = ColumnLayoutRelationData::createFrom(inputGenerator_, configuration_.isNullEqualNull);
     auto schema = relation->getSchema();
 
-    for (auto col : schema->getColumns()) {
+    for (auto const & col : schema->getColumns()) {
         LOG(DEBUG) << boost::format{"PLI for %1%: %2%"}
             % col->toString() % relation->getColumnData(col->getIndex())->getPositionListIndex()->toString();
     }
@@ -46,7 +47,7 @@ double Pyro::execute() {
         searchSpaces_.push_back(std::make_shared<SearchSpace>(nextId++, strategy, schema, launchPadOrder));
     }
     if (configuration_.isFindFds) {
-        for (auto rhs : schema->getColumns()) {
+        for (auto const & rhs : schema->getColumns()) {
             std::shared_ptr<DependencyStrategy> strategy;
             if (configuration_.uccErrorMeasure == "g1prime") {
                 strategy = std::dynamic_pointer_cast<DependencyStrategy>(

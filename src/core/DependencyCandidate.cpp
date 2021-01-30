@@ -1,6 +1,6 @@
-#include <boost/dynamic_bitset.hpp>
-
 #include "DependencyCandidate.h"
+
+#include <boost/dynamic_bitset.hpp>
 
 // TODO: these methods are used in priority_queues, where operator> is needed. (>) !<=> (>=) due to strict weak ordering
 bool DependencyCandidate::arityComparator(DependencyCandidate const & dc1, DependencyCandidate const & dc2) {

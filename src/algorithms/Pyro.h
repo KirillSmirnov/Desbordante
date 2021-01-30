@@ -1,4 +1,5 @@
 #pragma once
+
 #include <list>
 #include "DependencyConsumer.h"
 #include "SearchSpace.h"

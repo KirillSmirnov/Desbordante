@@ -1,4 +1,5 @@
 #pragma once
+
 #include <functional>
 #include <list>
 #include "PartialFD.h"
@@ -12,9 +13,9 @@ public:
     std::list<PartialFD> discoveredFDs_;
     std::list<PartialKey> discoveredUCCs_;
 
-    PartialFD registerFd(std::shared_ptr<Vertical> lhs, std::shared_ptr<Column> rhs, double error, double score) const;
-    PartialKey registerUcc(std::shared_ptr<Vertical> keyVertical, double error, double score) const;
+    [[nodiscard]] PartialFD registerFd(std::shared_ptr<Vertical> lhs, std::shared_ptr<Column> rhs, double error, double score) const;
+    [[nodiscard]] PartialKey registerUcc(std::shared_ptr<Vertical> keyVertical, double error, double score) const;
 
-    std::string fdsToString() const;
-    std::string uccsToString() const;
+    [[nodiscard]] std::string fdsToString() const;
+    [[nodiscard]] std::string uccsToString() const;
 };

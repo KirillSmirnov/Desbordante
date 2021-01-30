@@ -1,8 +1,10 @@
 #pragma once
+
 #include "ProfilingContext.h"
 #include "DependencyCandidate.h"
 #include "DependencyConsumer.h"
 #include "Vertical.h"
+
 class SearchSpace;
 
 class DependencyStrategy {
@@ -31,7 +33,7 @@ public:
     virtual ~DependencyStrategy() = default;
 
     bool shouldResample(std::shared_ptr<Vertical> vertical, double boostFactor);
-    bool isIrrelevantColumn(std::shared_ptr<Column> column) { return this->isIrrelevantColumn(column->getIndex()); }
+    bool isIrrelevantColumn(std::shared_ptr<Column> const & column) { return this->isIrrelevantColumn(column->getIndex()); }
 
     static double round(double error) { return std::ceil(error * 32768) / 32768; }
 };

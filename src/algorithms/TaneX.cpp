@@ -31,7 +31,7 @@ double Tane::calculateUccError(shared_ptr<PositionListIndex> pli, shared_ptr<Col
     return pli->getNepAsLong() / static_cast<double>(relationData->getNumTuplePairs());
 }
 
-void Tane::registerFD(Vertical& lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> schema) {
+void Tane::registerFD(Vertical& lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> const & schema) {
     dynamic_bitset<> lhs_bitset = lhs.getColumnIndices();
     cout << "Discovered FD: ";
     for (size_t i = lhs_bitset.find_first(); i != dynamic_bitset<>::npos; i = lhs_bitset.find_next(i)) {
@@ -41,7 +41,7 @@ void Tane::registerFD(Vertical& lhs, shared_ptr<Column> rhs, double error, share
     countOfFD++;
 }
 
-void Tane::registerFD(shared_ptr<Vertical> lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> schema) {
+void Tane::registerFD(shared_ptr<Vertical> lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> const & schema) {
     registerFD(*lhs, rhs, error, schema);
 }
 

@@ -1,4 +1,3 @@
-
 #include "DependencyConsumer.h"
 
 PartialFD DependencyConsumer::registerFd(std::shared_ptr<Vertical> lhs, std::shared_ptr<Column> rhs, double error, double score) const {

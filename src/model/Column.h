@@ -29,10 +29,10 @@ public:
             index(index),
             schema(schema) {}
     explicit operator Vertical() const;
-    unsigned int getIndex() const;
-    string getName() const;
-    std::shared_ptr<RelationalSchema> getSchema() const;        // TODO: straight up bad: const-ness may be violated!
-    string toString() const;
+    [[nodiscard]] unsigned int getIndex() const;
+    [[nodiscard]] string getName() const;
+    [[nodiscard]] std::shared_ptr<RelationalSchema> getSchema() const;        // TODO: straight up bad: const-ness may be violated!
+    [[nodiscard]] string toString() const;
     explicit operator std::string() const { return toString(); }
     bool operator==(const Column& rhs);
 };

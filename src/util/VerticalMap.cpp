@@ -1,12 +1,16 @@
 //
 // Created by maxim on 07.05.2020.
 //
+
+#include "VerticalMap.h"
+
 #include <exception>
 #include <queue>
 #include <unordered_set>
-#include "VerticalMap.h"
+
 #include "VerticalInfo.h"
 #include "DependencyCandidate.h"
+
 /*void linkingProblemsSolver() {
     VerticalMap<std::shared_ptr<Vertical>> obj(nullptr);
 }*/

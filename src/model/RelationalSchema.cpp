@@ -2,13 +2,12 @@
 // Created by kek on 17.07.19.
 //
 
+#include "RelationalSchema.h"
+
 #include <utility>
 
-#include "RelationalSchema.h"
 #include "Vertical.h"
 #include "VerticalMap.h"
-
-using namespace std;
 
 RelationalSchema::RelationalSchema(string name, bool isNullEqNull) :
         columns(),
@@ -56,7 +55,7 @@ shared_ptr<Column> RelationalSchema::getColumn(int index) {
 }
 
 void RelationalSchema::appendColumn(const string& colName) {
-    columns.push_back(make_shared<Column>(shared_from_this(), colName, columns.size()));
+    columns.push_back(std::make_shared<Column>(shared_from_this(), colName, columns.size()));
 }
 
 // if you have nothing else to do: push_back through move semantics

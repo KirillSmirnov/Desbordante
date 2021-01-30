@@ -1,6 +1,8 @@
-#include "logging/easylogging++.h"
 #include "SearchSpace.h"
+
+#include "logging/easylogging++.h"
 #include <queue>
+
 /*SearchSpace::SearchSpace(int id, std::shared_ptr<DependencyStrategy> strategy,
                          std::unique_ptr<VerticalMap<Vertical>> scope, VerticalMap<VerticalInfo> globalVisitees,
                          std::shared_ptr<RelationalSchema> schema, std::function<bool(DependencyCandidate const &,

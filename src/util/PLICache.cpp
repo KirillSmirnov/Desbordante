@@ -2,13 +2,12 @@
 // Created by maxim on 14.05.2020.
 //
 
+#include "PLICache.h"
+
 #include <boost/optional.hpp>
 
 #include "logging/easylogging++.h"
-
-#include "PLICache.h"
 #include "VerticalMap.h"
-
 
 std::shared_ptr<PositionListIndex> PLICache::get(Vertical const &vertical) {
     //VerticalMap<std::shared_ptr<PositionListIndex>> obj(nullptr);

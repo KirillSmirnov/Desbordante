@@ -12,6 +12,7 @@
 #include "DependencyCandidate.h"
 #include "Vertical.h"
 #include "RelationalSchema.h"
+
 class SearchSpace : public std::enable_shared_from_this<SearchSpace> {
 private:
     std::shared_ptr<ProfilingContext> context_;
@@ -76,7 +77,7 @@ public:
     void ensureInitialized() { strategy_->ensureInitialized(shared_from_this()); }
     void discover() { discover(nullptr); }
     void addLaunchPad(DependencyCandidate const& launchPad);
-    void setContext(std::shared_ptr<ProfilingContext> context)  {
+    void setContext(std::shared_ptr<ProfilingContext> const & context)  {
         context_ = context;
         strategy_->context_ = context;
     }

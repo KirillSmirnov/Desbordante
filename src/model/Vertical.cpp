@@ -7,8 +7,6 @@
 #include <iostream>
 #include <utility>
 
-
-
 using namespace std;
 
 Vertical::Vertical(shared_ptr<RelationalSchema> relSchema, dynamic_bitset<> const & indices) :

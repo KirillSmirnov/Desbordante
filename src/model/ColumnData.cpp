@@ -8,9 +8,9 @@
 #include <random>
 #include <utility>
 
-using namespace std;
+using std::vector, std::random_device, std::mt19937;
 
-ColumnData::ColumnData(shared_ptr<Column>& column, vector<int> probingTable, shared_ptr<PositionListIndex>& positionListIndex):
+ColumnData::ColumnData(shared_ptr<Column> const & column, vector<int> const & probingTable, shared_ptr<PositionListIndex>& positionListIndex):
     column(column),
     probingTable(std::move(probingTable)),
     positionListIndex(positionListIndex)

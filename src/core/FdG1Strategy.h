@@ -11,7 +11,7 @@ private:
     double calculateG1(double numViolatingTuplePairs);
     ConfidenceInterval calculateG1(ConfidenceInterval const& numViolations);
 public:
-    FdG1Strategy(std::shared_ptr<Column> rhs, double maxError, double deviation) : DependencyStrategy(maxError, deviation), rhs_(rhs) {}
+    FdG1Strategy(std::shared_ptr<Column> rhs, double maxError, double deviation) : DependencyStrategy(maxError, deviation), rhs_(std::move(rhs)) {}
 
     void ensureInitialized(std::shared_ptr<SearchSpace> searchSpace) override;
     double calculateError(std::shared_ptr<Vertical> lhs) override;

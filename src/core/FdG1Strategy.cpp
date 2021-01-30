@@ -1,5 +1,6 @@
-#include <unordered_map>
 #include "FdG1Strategy.h"
+
+#include <unordered_map>
 #include "SearchSpace.h"
 #include "PLICache.h"
 

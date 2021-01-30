@@ -8,10 +8,10 @@
 #include <memory>
 #include <utility>
 
-using namespace std;
+using std::make_shared;
 
 //vector <- pass by reference
-ColumnLayoutRelationData::ColumnLayoutRelationData(shared_ptr<RelationalSchema>& schema, vector<shared_ptr<ColumnData>> columnData) :
+ColumnLayoutRelationData::ColumnLayoutRelationData(shared_ptr<RelationalSchema> const & schema, vector<shared_ptr<ColumnData>> columnData) :
     RelationData(schema),
     columnData(std::move(columnData)){}
 
@@ -19,7 +19,7 @@ vector<shared_ptr<ColumnData>> ColumnLayoutRelationData::getColumnData() {
     return columnData;
 }
 
-shared_ptr<ColumnData> ColumnLayoutRelationData::getColumnData(int columnIndex) {
+shared_ptr<ColumnData> ColumnLayoutRelationData::getColumnData(unsigned int columnIndex) {
     return columnData[columnIndex];
 }
 
@@ -48,13 +48,13 @@ shared_ptr<ColumnLayoutRelationData> ColumnLayoutRelationData::createFrom(CSVPar
 
 shared_ptr<ColumnLayoutRelationData> ColumnLayoutRelationData::createFrom(CSVParser &fileInput, bool isNullEqNull, int maxCols,
                                                               long maxRows) {
-    auto schema =  RelationalSchema::create(fileInput.getRelationName(), isNullEqNull);
-    map<string, int> valueDictionary;
+    auto schema = RelationalSchema::create(fileInput.getRelationName(), isNullEqNull);
+    std::map<string, int> valueDictionary;
     int nextValueId = 1;
     const int nullValueId = -1;
     const int unknownValueId = 0;
     int numColumns = fileInput.getNumberOfColumns();
-    if (maxCols > 0) numColumns = min(numColumns, maxCols);
+    if (maxCols > 0) numColumns = std::min(numColumns, maxCols);
     vector<vector<int>> columnVectors = vector<vector<int>>(numColumns);
     int rowNum = 0;
     vector<string> row;

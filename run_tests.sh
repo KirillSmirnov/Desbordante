@@ -1,4 +1,5 @@
 #!/bin/bash
+
 declare -a datasets=('adult' 'breast_cancer' 'CIPublicHighway' 'EpicMeds' 'EpicVitals' 'iowa1kk' 'LegacyPayors' 'neighbors100k')
 declare -a separators=(';' ',' ',' '|' '|' ',' '|' ',')
 declare -a header_presence=('false' 'true' 'true' 'true' 'true' 'true' 'true' 'true')

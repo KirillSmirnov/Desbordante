@@ -13,7 +13,6 @@
 #include "RelationData.h"
 #include "CSVParser.h"
 
-
 using std::vector;
 
 class ColumnLayoutRelationData : public RelationData {
@@ -22,13 +21,13 @@ private:
 
 public:
     vector<shared_ptr<ColumnData>> getColumnData() override;
-    shared_ptr<ColumnData> getColumnData(int columnIndex) override;
+    shared_ptr<ColumnData> getColumnData(unsigned int columnIndex) override;
     unsigned int getNumRows() override;
     vector<int> getTuple(int tupleIndex) override;
     void shuffleColumns() override;
     double getMaximumEntropy() { return std::log(getNumRows()); }
 
-    ColumnLayoutRelationData(shared_ptr<RelationalSchema>& schema, vector<shared_ptr<ColumnData>> columnData);
+    ColumnLayoutRelationData(shared_ptr<RelationalSchema> const & schema, vector<shared_ptr<ColumnData>> columnData);
 
     static shared_ptr<ColumnLayoutRelationData> createFrom(CSVParser& fileInput, bool isNullEqNull);
     static shared_ptr<ColumnLayoutRelationData> createFrom(CSVParser& fileInput, bool isNullEqNull, int maxCols, long maxRows);

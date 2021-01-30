@@ -11,17 +11,15 @@
 #include "Column.h"
 #include "PositionListIndex.h"
 
-using std::vector;
-
 class ColumnData {
 private:
     shared_ptr<Column> column;
-    vector<int> probingTable;
+    std::vector<int> probingTable;
     shared_ptr<PositionListIndex> positionListIndex;
 
 public:
-    ColumnData(shared_ptr<Column>& column, vector<int> probingTable, shared_ptr<PositionListIndex>& positionListIndex);
-    vector<int> getProbingTable();
+    ColumnData(shared_ptr<Column> const & column, std::vector<int> const & probingTable, shared_ptr<PositionListIndex>& positionListIndex);
+    std::vector<int> getProbingTable();
     int getProbingTableValue(int tupleIndex);
     shared_ptr<Column> getColumn();
     shared_ptr<PositionListIndex> getPositionListIndex();

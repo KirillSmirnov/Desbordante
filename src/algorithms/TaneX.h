@@ -35,8 +35,8 @@ public:
   static double calculateUccError(shared_ptr<PositionListIndex> pli, shared_ptr<ColumnLayoutRelationData> relationData);
   //static double round(double error) { return ((int)(error * 32768) + 1)/ 32768.0; }
   //can't say if this method is necessary -- TODO: use this function?
-  void registerFD(Vertical& lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> schema);
-  void registerFD(shared_ptr<Vertical> lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> schema);
+  void registerFD(Vertical& lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> const & schema);
+  void registerFD(shared_ptr<Vertical> lhs, shared_ptr<Column> rhs, double error, shared_ptr<RelationalSchema> const & schema);
   void registerUCC(Vertical& key, double error, shared_ptr<RelationalSchema> schema);
 
 };
